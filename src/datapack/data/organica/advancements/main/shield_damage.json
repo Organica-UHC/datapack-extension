@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:shield"
+    },
+    "title": {
+      "translate": "Разрушение щитов"
+    },
+    "description": {
+      "translate": "Прочность снижается на 1 ед. при поглощении части урона атрибутом «Броня»."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:main/damage",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:shield"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

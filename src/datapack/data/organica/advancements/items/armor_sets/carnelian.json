@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:leather_chestplate",
+      "nbt": "{CustomModelData:3}"
+    },
+    "title": {
+      "translate": "Корнеоловый комплект"
+    },
+    "description": {
+      "translate": "2+ надетые части наделяют «Спешкой». 3+ части — «Сопротивлением»."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/armor_sets",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:leather_boots",
+              "minecraft:leather_chestplate",
+              "minecraft:leather_helmet",
+              "minecraft:leather_leggings"
+            ],
+            "nbt": "{CustomModelData:3}"
+          }
+        ]
+      }
+    }
+  }
+}

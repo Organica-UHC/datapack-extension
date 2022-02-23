@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#a"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stone"
+        },
+        "a": {			
+			"item": "minecraft:player_head"
+        }
+    },
+    "result": {
+        "item": "minecraft:apple",
+        "count": 1
+    }
+}

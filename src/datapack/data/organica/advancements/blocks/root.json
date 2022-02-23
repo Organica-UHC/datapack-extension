@@ -1,0 +1,21 @@
+{
+	"parent": "organica:root",
+	"display": {
+		"icon": {
+			"item": "glowstone"
+		},
+		"title": {
+			"translate": "Блоки"
+		},
+		"description": "",
+		"frame": "challenge",
+		"show_toast": false,
+		"announce_to_chat": false,
+		"hidden": false
+	},
+	"criteria": {
+		"organica_requirement": {
+			"trigger": "tick"
+		}
+	}
+}

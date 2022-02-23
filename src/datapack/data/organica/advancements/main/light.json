@@ -1,0 +1,68 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:8}"
+    },
+    "title": {
+      "translate": "Счётчик освещения"
+    },
+    "description": {
+      "translate": "В темноте понижается, а в свету повышается.\n\n%s: становится темно, отключается бег.\n\n%s: даётся «Утомление».",
+      "with": [
+        {
+          "text": "0",
+          "color": "white",
+          "font": "organica:light_inline",
+          "italic": false
+        },
+        {
+          "text": "~",
+          "color": "white",
+          "font": "organica:light_inline",
+          "italic": false
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:main/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "light": {
+                  "light": 0
+                }
+              },
+              "player": {
+                "gamemode": "survival"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:inverted",
+            "term": {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "effects": {
+                  "minecraft:night_vision": {}
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

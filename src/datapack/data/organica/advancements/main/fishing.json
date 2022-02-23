@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:fishing_rod"
+    },
+    "title": {
+      "translate": "Предметы с рыбалки"
+    },
+    "description": {
+      "translate": "Пул вылавливаемых предметов полностью изменён. Рыба убрана из пула."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:main/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:fishing_rod"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

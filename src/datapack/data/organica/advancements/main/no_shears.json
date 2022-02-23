@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:20}"
+    },
+    "title": {
+      "translate": "Ножницы"
+    },
+    "description": {
+      "translate": "Рецепт ножниц удалён."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:main/recipes",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ingot"
+            ],
+            "count": {
+              "min": 2
+            }
+          }
+        ]
+      }
+    }
+  }
+}

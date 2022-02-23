@@ -1,0 +1,123 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:18}"
+    },
+    "title": {
+      "translate": "Специфика особых руд"
+    },
+    "description": {
+      "translate": "На особые руды не действуют «Удача» и «Шёлковое касание». Также советуем использовать плавильную печь для переработки."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:blocks/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:alternative",
+            "terms": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:chiseled_deepslate",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:deepslate_bricks",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:cracked_deepslate_bricks",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:deepslate_tiles",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:cracked_deepslate_tiles",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

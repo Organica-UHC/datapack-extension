@@ -1,0 +1,5 @@
+#main: evgeniy.datapack.extension.plugin.DataPackExtensionPlugin
+main: evgeniy.datapack.extension.plugin.DataPackExtensionPaperShelledPlugin
+name: DatapackExtension
+version: ${version}
+api-version: "1.17"

@@ -1,0 +1,51 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "title": {
+      "translate": "Зачарованное золотое яблоко"
+    },
+    "description": {
+      "translate": "Восстанавливает %s×5 и даёт %s×6.",
+      "with": [
+        {
+          "text": "0",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        },
+        {
+          "text": "3",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/apple",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_golden_apple"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

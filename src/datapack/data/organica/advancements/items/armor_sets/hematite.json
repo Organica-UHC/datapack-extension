@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:leather_chestplate",
+      "nbt": "{CustomModelData:4}"
+    },
+    "title": {
+      "translate": "Гематитовый комплект"
+    },
+    "description": {
+      "translate": "2+ надетые части наделяют «Невидимостью». 3+ части — «Скоростью», которая пропадает на 4 с после получения урона."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/armor_sets",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:leather_boots",
+              "minecraft:leather_chestplate",
+              "minecraft:leather_helmet",
+              "minecraft:leather_leggings"
+            ],
+            "nbt": "{CustomModelData:4}"
+          }
+        ]
+      }
+    }
+  }
+}

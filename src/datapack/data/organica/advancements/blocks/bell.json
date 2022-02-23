@@ -1,0 +1,62 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:bell"
+    },
+    "title": {
+      "translate": "Колокол"
+    },
+    "description": {
+      "translate": "Выпадает 8 золотых слитков."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:blocks/root",
+  "criteria": {
+    "organica_mined": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival",
+            "stats": [
+              {
+                "type": "minecraft:mined",
+                "stat": "minecraft:bell",
+                "value": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "organica_inventory": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:bell"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "organica_mined",
+      "organica_inventory"
+    ]
+  ]
+}

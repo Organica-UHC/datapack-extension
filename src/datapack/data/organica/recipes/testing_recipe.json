@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##a"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stone"
+        },
+        "a": {			
+			"item": "minecraft:shulker_shell",
+			"nbt":"{CustomModelData:3,display:{Name:'{\"translate\":\"item.organica.carnelian\",\"italic\":\"false\"}'}}"
+        }
+    },
+    "result": {
+        "item": "minecraft:shulker_shell",
+		"nbt":"{CustomModelData:3,display:{Name:'{\"translate\":\"item.organica.carnelian\",\"italic\":\"false\"}'}}",
+        "count": 1
+    }
+}

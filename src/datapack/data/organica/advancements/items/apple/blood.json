@@ -1,0 +1,76 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_apple",
+      "nbt": "{CustomModelData:1}"
+    },
+    "title": {
+      "translate": "Кровавое яблоко"
+    },
+    "description": {
+      "translate": "Создаётся из головы игрока и 8 золотых слитков. Регенерирует %s×4 и даёт %s×2.",
+      "with": [
+        {
+          "text": "0",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        },
+        {
+          "text": "3",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/apple",
+  "criteria": {
+    "organica_apple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:golden_apple"
+            ],
+            "nbt": "{CustomModelData:1}"
+          }
+        ]
+      }
+    },
+    "organica_head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:player_head"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "organica_apple",
+      "organica_head"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:hay_block"
+    },
+    "title": {
+      "translate": "Сноп сена"
+    },
+    "description": {
+      "translate": "Выпадает 1-3 пшеницы."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:blocks/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival",
+            "stats": [
+              {
+                "type": "minecraft:mined",
+                "stat": "minecraft:hay_block",
+                "value": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

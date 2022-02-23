@@ -1,0 +1,91 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_apple",
+      "nbt": "{CustomModelData:3}"
+    },
+    "title": {
+      "translate": "Древесное яблоко"
+    },
+    "description": {
+      "translate": "Создаётся из 2 яблок и 7 золотых слитков. Регенерирует %s×4.",
+      "with": [
+        {
+          "text": "0",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/apple",
+  "criteria": {
+    "organica_apple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:golden_apple"
+            ],
+            "nbt": "{CustomModelData:1}"
+          }
+        ]
+      }
+    },
+    "organica_damage": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:inverted",
+            "term": {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "effects": {
+                  "minecraft:resistance": {
+                    "amplifier": {
+                      "min": 4
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "player": {
+                "gamemode": "survival"
+              }
+            }
+          }
+        ],
+        "damage": {
+          "taken": {
+            "min": 5
+          },
+          "blocked": false
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "organica_apple",
+      "organica_damage"
+    ]
+  ]
+}

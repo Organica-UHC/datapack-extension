@@ -1,0 +1,11 @@
+{
+	"id": "datapackextension",
+	"version": "${version}",
+	"entry": "evgeniy.datapack.extension.mod.DataPackExtensionMod",
+	"dependencies": [
+		"ignite"
+	],
+	"mixins": [
+		"mixins.datapackextension.json"
+	]
+}

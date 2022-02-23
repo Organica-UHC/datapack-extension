@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:creeper_head"
+    },
+    "title": {
+      "translate": "Взрыв крипера"
+    },
+    "description": {
+      "translate": "Урон от взрыва снижен."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:mobs/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:creeper"
+          }
+        }
+      }
+    }
+  }
+}

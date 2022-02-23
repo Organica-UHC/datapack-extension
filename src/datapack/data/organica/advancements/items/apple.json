@@ -1,0 +1,140 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:apple"
+    },
+    "title": {
+      "translate": "Получение яблок"
+    },
+    "description": {
+      "translate": "Шанс яблок из любой листвы — 0.6%. При использовании мотыги яблоки выпадают только из дубовой листвы."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:alternative",
+            "terms": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:acacia_leaves",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:spruce_leaves",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:birch_leaves",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:oak_leaves",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:dark_oak_leaves",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "player": {
+                    "gamemode": "survival",
+                    "stats": [
+                      {
+                        "type": "minecraft:mined",
+                        "stat": "minecraft:jungle_leaves",
+                        "value": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

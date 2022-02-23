@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:21}"
+    },
+    "title": {
+      "translate": "Элитры и фейерверк"
+    },
+    "description": {
+      "translate": "Невозможно использовать фейерверки во время полёта на элитрах."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:firework_rocket",
+              "minecraft:elytra"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

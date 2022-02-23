@@ -1,0 +1,47 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:7}"
+    },
+    "title": {
+      "translate": "Приготовление пищи"
+    },
+    "description": {
+      "translate": "Пищу можно готовить только на костре."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:main/hunger",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:potato",
+              "minecraft:kelp",
+              "minecraft:salmon",
+              "minecraft:rabbit",
+              "minecraft:porkchop",
+              "minecraft:mutton",
+              "minecraft:chicken",
+              "minecraft:salmon",
+              "minecraft:cod",
+              "minecraft:beef"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

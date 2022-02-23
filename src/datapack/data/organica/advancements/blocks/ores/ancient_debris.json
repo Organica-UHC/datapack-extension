@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:ancient_debris"
+    },
+    "title": {
+      "translate": "Древние обломки"
+    },
+    "description": {
+      "translate": "Выпадает 1—8 незеритового лома. Обработайте его в плавильной печи, чтобы получить слитки."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:blocks/custom_ores",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival",
+            "stats": [
+              {
+                "type": "minecraft:mined",
+                "stat": "minecraft:ancient_debris",
+                "value": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

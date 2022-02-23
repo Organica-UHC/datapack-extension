@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:emerald_ore"
+    },
+    "title": {
+      "translate": "Генерация изумрудной руды"
+    },
+    "description": {
+      "translate": "Появляется во всех биомах. Количество жил увеличивается с высотой."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:blocks/custom_ores",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival",
+            "stats": [
+              {
+                "type": "minecraft:mined",
+                "stat": "minecraft:emerald_ore",
+                "value": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

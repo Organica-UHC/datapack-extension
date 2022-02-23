@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:netherite_chestplate"
+    },
+    "title": {
+      "translate": "Незеритовый комплект"
+    },
+    "description": {
+      "translate": "4 надетые части наделяют «Огнестойкостью»."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/armor_sets",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:netherite_boots",
+              "minecraft:netherite_chestplate",
+              "minecraft:netherite_helmet",
+              "minecraft:netherite_leggings"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

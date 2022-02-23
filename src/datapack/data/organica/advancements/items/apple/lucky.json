@@ -1,0 +1,79 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_apple",
+      "nbt": "{CustomModelData:2}"
+    },
+    "title": {
+      "translate": "Удачное яблоко"
+    },
+    "description": {
+      "translate": "Создаётся из яблока и 4 золотых слитков. Регенерирует %s×1 и даёт %s×2.",
+      "with": [
+        {
+          "text": "0",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        },
+        {
+          "text": "3",
+          "color": "white",
+          "font": "organica:icons",
+          "italic": false
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:items/apple",
+  "criteria": {
+    "organica_apple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:golden_apple"
+            ],
+            "nbt": "{CustomModelData:2}"
+          }
+        ]
+      }
+    },
+    "organica_damage": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival",
+            "stats": []
+          }
+        },
+        "damage": {
+          "taken": {
+            "min": 2
+          },
+          "blocked": false,
+          "source_entity": {
+            "type": "minecraft:player"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "organica_apple",
+      "organica_damage"
+    ]
+  ]
+}

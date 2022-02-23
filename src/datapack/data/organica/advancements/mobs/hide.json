@@ -1,0 +1,65 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:rabbit_hide"
+    },
+    "title": {
+      "translate": "Получение шкурки"
+    },
+    "description": {
+      "translate": "Может выпасть с кроликов, кошек, оцелотов и летучих мышей."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:mobs/gold_ingots",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "entity": [
+          {
+            "condition": "minecraft:alternative",
+            "terms": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:bat"
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:ocelot"
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:rabbit"
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:cat"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

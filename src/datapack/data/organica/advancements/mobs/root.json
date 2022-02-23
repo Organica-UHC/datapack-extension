@@ -1,0 +1,21 @@
+{
+	"parent": "organica:root",
+	"display": {
+		"icon": {
+			"item": "zombie_head"
+		},
+		"title": {
+			"translate": "Мобы"
+		},
+		"description": "",
+		"frame": "challenge",
+		"show_toast": false,
+		"announce_to_chat": false,
+		"hidden": false
+	},
+	"criteria": {
+		"organica_requirement": {
+			"trigger": "tick"
+		}
+	}
+}

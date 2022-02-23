@@ -1,0 +1,22 @@
+{
+	"display": {
+		"icon": {
+			"item": "glowstone_dust",
+			"nbt": "{CustomModelData:1}"
+		},
+		"title": {
+			"translate": "Organica"
+		},
+		"description": "",
+		"frame": "task",
+		"show_toast": false,
+		"announce_to_chat": false,
+		"hidden": false,
+		"background": "minecraft:textures/gui/options_background.png"
+	},
+	"criteria": {
+		"organica_requirement": {
+			"trigger": "tick"
+		}
+	}
+}

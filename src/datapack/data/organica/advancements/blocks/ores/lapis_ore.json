@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:lapis_ore"
+    },
+    "title": {
+      "translate": "Добыча лазуритовой руды"
+    },
+    "description": {
+      "translate": "Выпадает лишь 1 лазурит. На руду не действует «Удача»."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:blocks/custom_ores",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival",
+            "stats": [
+              {
+                "type": "minecraft:mined",
+                "stat": "minecraft:lapis_ore",
+                "value": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

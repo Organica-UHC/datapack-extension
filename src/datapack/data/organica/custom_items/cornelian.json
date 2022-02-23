@@ -1,0 +1,51 @@
+{
+	"type": "datapackextension:item",
+
+	"display": {
+		"item": "minecraft:stone_sword",
+		"nbt": "{CustomModelData:4}"
+	},
+
+	"components": {
+		"max_stack_size": 64,
+		"craft_reminder_item": "minecraft:gold_sword",
+		"category": "tools",
+		"rarity": "common",
+		"fire_resistant": false,
+		"food": {
+			"nutrition": 1,
+			"saturation_modifier": 1.0,
+			"meat": false,
+			"always_eat": false,
+			"fast_food": false,
+			"effects": [
+				{
+					"effect": {
+						"id": "minecraft:regeneration",
+						"duration": 5,
+						"amplifier": 5,
+						"ambient": false,
+						"visible": false,
+						"show_icon": false,
+						"hidden_effect": {}
+					},
+					"chance": 0.5
+				}
+			]
+		},
+		"tier": {
+			"uses": 5,
+			"speed": 5.0,
+			"attack_damage_bonus": 1.0,
+			"level": 4,
+			"enchantment_value": 19,
+			"repair_ingredients": [
+				"minecraft:stone"
+			]
+		},
+		"digger": {
+			"damage": 1.0,
+			"attack_speed": 1.0
+		}
+	}
+}

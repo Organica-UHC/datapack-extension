@@ -1,0 +1,113 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:11}"
+    },
+    "title": {
+      "translate": "Эффекты доспехов"
+    },
+    "description": {
+      "translate": "Определённое число надетых доспехов одного типа наделяет носителя эффектами."
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "organica:items/root",
+  "criteria": {
+    "organica_aventurine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:leather_boots",
+              "minecraft:leather_chestplate",
+              "minecraft:leather_helmet",
+              "minecraft:leather_leggings"
+            ],
+            "nbt": "{CustomModelData:1}"
+          }
+        ]
+      }
+    },
+    "organica_citrine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:leather_boots",
+              "minecraft:leather_chestplate",
+              "minecraft:leather_helmet",
+              "minecraft:leather_leggings"
+            ],
+            "nbt": "{CustomModelData:2}"
+          }
+        ]
+      }
+    },
+    "organica_carnelian": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:leather_boots",
+              "minecraft:leather_chestplate",
+              "minecraft:leather_helmet",
+              "minecraft:leather_leggings"
+            ],
+            "nbt": "{CustomModelData:3}"
+          }
+        ]
+      }
+    },
+    "organica_hematite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "minecraft:leather_boots",
+              "minecraft:leather_chestplate",
+              "minecraft:leather_helmet",
+              "minecraft:leather_leggings"
+            ],
+            "nbt": "{CustomModelData:4}"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "organica_aventurine",
+      "organica_citrine",
+      "organica_carnelian",
+      "organica_hematite"
+    ]
+  ]
+}

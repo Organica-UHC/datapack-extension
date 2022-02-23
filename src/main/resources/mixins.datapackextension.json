@@ -1,0 +1,9 @@
+{
+	"required": true,
+	"minVersion": "0.8.3",
+	"package": "evgeniy.datapack.extension.mod.mixin.core",
+	"compatibilityLevel": "JAVA_9",
+	"server": [
+		"DataPackResourcesMixin"
+	]
+}

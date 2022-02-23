@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:glowstone_dust",
+      "nbt": "{CustomModelData:4}"
+    },
+    "title": {
+      "translate": "Разгон урона"
+    },
+    "description": {
+      "translate": "Разгон базового урона составляет 14 ед."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "organica:main/root",
+  "criteria": {
+    "organica_requirement": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "player": {
+            "gamemode": "survival"
+          }
+        },
+        "damage": {
+          "dealt": {
+            "min": 6
+          }
+        }
+      }
+    }
+  }
+}
