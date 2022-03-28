@@ -1,15 +1,6 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-    }
-    dependencies {
-        classpath("gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0")
-    }
-}
-
 plugins {
     java
-    id("io.papermc.paperweight.userdev") version "1.3.4"
+    id("io.papermc.paperweight.userdev") version "1.3.5"
     id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
@@ -31,60 +22,44 @@ repositories {
 }
 
 dependencies {
-//    implementation("space.vectrix.ignite:ignite-api:0.7.4")
-    compileOnly(files("./run/PaperShelled-1.0.0.jar"))  // no nms
+    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.2-R0.1-SNAPSHOT")
+
+    implementation("space.vectrix.ignite:ignite-api:0.7.4")
     compileOnly("org.spongepowered:mixin:0.8.5")
 
-//    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")  // no nms
-//    compileOnly(files("./run/versions/1.18.1/paper-1.18.1.jar"))  // nms obfuscated
-    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.1-R0.1-SNAPSHOT")  // nms deobfuscated
-
-    // https://mvnrepository.com/artifact/org.jetbrains/annotations
     compileOnly("org.jetbrains:annotations:23.0.0")
 
-    // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
 }
 
-tasks.processResources {
-    filesMatching(listOf("plugin.yml", "ignite.mod.json")) {
-        expand(project.properties)
-    }
-}
-
-//val jar by tasks.getting(Jar::class)
-val reobfJar by tasks.getting(io.papermc.paperweight.tasks.RemapJar::class)  // reobfuscate nms
+val reobfJar by tasks.getting(io.papermc.paperweight.tasks.RemapJar::class)
 
 val devBuild by tasks.creating(Copy::class) {
-    group = "plugin"
+    group = "mod"
+
     from(reobfJar)
-//    into("$projectDir/run/plugins")
-    into("$projectDir/run/PaperShelled/plugins")
-    this.rename {"${project.name}.jar" }  // ignore version, cause this is dev)
-//    this.rename {"${project.name}.ps.jar" }  // PaperShelled require mixin plugins in ./plugins dir to be suffixed with .ps.jar or .papershelled.jar
+    into("$projectDir/run/mods")
+    this.rename {"${project.name}.jar" }
 }
 
 val runMixinServer by tasks.creating(JavaExec::class) {
-    group = "plugin"
+    group = "mod"
+    description = "Runs the ignite server"
+
     dependsOn(devBuild)
-    description = "Runs the server"
+
     doFirst {
         mkdir("$projectDir/run")
     }
 
-//    // https://github.com/vectrix-space/ignite
-//    this.jvmArgs("-Dignite.launch.service=paperclip")
-//    this.jvmArgs("-Dignite.paperclip.minecraft=1.18.1")
-//    this.jvmArgs("-Dignite.paperclip.jar=./paper-1.18.1-177.jar")
-//    this.jvmArgs("-Dignite.paperclip.target=io.papermc.paperclip.Paperclip")
-//    this.jvmArgs("-Dignite.mod.directory=./plugins")
-//    this.classpath("$projectDir/run/ignite-launcher.jar")
+    // https://github.com/vectrix-space/ignite
+    jvmArgs("-Dignite.service=paper")
+    jvmArgs("-Dignite.paper.minecraft=1.18.2")
+    jvmArgs("-Dignite.paper.jar=./paper-1.18.2-268.jar")
+    jvmArgs("-Dignite.paper.target=io.papermc.paperclip.Paperclip")
+    classpath("$projectDir/run/ignite-launcher.jar")
 
-    // https://github.com/Apisium/PaperShelled
-    this.jvmArgs("-javaagent:PaperShelled-1.0.0.jar")
-    this.classpath("$projectDir/run/paper-1.18.1-177.jar")
-
-    this.args("--nogui")
+    args("--nogui")
     workingDir("$projectDir/run")
 }

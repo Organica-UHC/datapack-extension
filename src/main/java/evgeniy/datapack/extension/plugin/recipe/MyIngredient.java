@@ -1,19 +1,14 @@
 package evgeniy.datapack.extension.plugin.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonSyntaxException;
-import evgeniy.datapack.extension.plugin.serializer.ItemSerializer;
+import com.google.gson.*;
 import evgeniy.datapack.extension.plugin.reflection.SafeConstructor;
 import evgeniy.datapack.extension.plugin.reflection.SafeField;
 import evgeniy.datapack.extension.plugin.reflection.nms.SafeNms;
+import evgeniy.datapack.extension.plugin.serializer.ItemSerializer;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.SerializationTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -57,12 +52,8 @@ public class MyIngredient {
         }
 
         if (json.has("tag")) {
-            ResourceLocation resourcelocation = new ResourceLocation(GsonHelper.getAsString(json, "tag"));
-            Tag<Item> tag = SerializationTags.getInstance().getTagOrThrow(
-                    (ResourceKey<Registry<Item>>) Registry.ITEM_REGISTRY,
-                    resourcelocation,
-                    (tagName) -> new JsonSyntaxException("Unknown item tag '" + tagName + "'")
-            );
+            ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(json, "tag"));
+            TagKey<Item> tag = TagKey.create(Registry.ITEM_REGISTRY, id);
 
             return new TagValue(tag);
         }
@@ -93,16 +84,16 @@ public class MyIngredient {
 
     public static class TagValue implements Ingredient.Value {
 
-        private final Tag<Item> tag;
+        private final TagKey<Item> tag;
 
-        public TagValue(final Tag<Item> tag) {
+        public TagValue(final TagKey<Item> tag) {
             this.tag = tag;
         }
 
         @Override
         public Collection<ItemStack> getItems() {
-            return this.tag.getValues()
-                    .stream()
+            final var holders = Registry.ITEM.getTagOrEmpty(this.tag);
+            return StreamSupport.stream(holders.spliterator(), false)
                     .map(ItemStack::new)
                     .collect(Collectors.toList());
         }
@@ -110,13 +101,7 @@ public class MyIngredient {
         @Override
         public JsonObject serialize() {
             JsonObject object = new JsonObject();
-            object.addProperty(
-                    "tag",
-                    SerializationTags.getInstance().getIdOrThrow(
-                            (ResourceKey<Registry<Item>>) Registry.ITEM_REGISTRY, this.tag,
-                            () -> new IllegalStateException("Unknown item tag")
-                    ).toString()
-            );
+            object.addProperty("tag", this.tag.location().toString());
             return object;
         }
 

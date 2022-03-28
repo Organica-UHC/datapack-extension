@@ -70,11 +70,11 @@ public class DataPackExtension {
 
         // load config
 
-        new RecipeInjector().inject();
-
-        Bukkit.getServer().reloadData();
-
-        Bukkit.getPluginManager().registerEvents(new RecipeBookListener(plugin), plugin);
+//        new RecipeInjector().inject();
+//
+//        Bukkit.getServer().reloadData();
+//
+//        Bukkit.getPluginManager().registerEvents(new RecipeBookListener(plugin), plugin);
     }
 
     public void onDisable() {

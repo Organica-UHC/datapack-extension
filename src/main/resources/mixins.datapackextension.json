@@ -4,6 +4,6 @@
 	"package": "evgeniy.datapack.extension.mod.mixin.core",
 	"compatibilityLevel": "JAVA_9",
 	"server": [
-		"DataPackResourcesMixin"
+      "ReloadableServerResourcesMixin"
 	]
 }

@@ -1,15 +1,14 @@
 package evgeniy.datapack.extension.plugin.listener;
 
 import com.destroystokyo.paper.event.player.PlayerRecipeBookClickEvent;
-import evgeniy.datapack.extension.plugin.DataPackExtensionPlugin;
 import evgeniy.datapack.extension.plugin.recipebook.RecipePlacer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.item.crafting.Recipe;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
-import org.bukkit.craftbukkit.v1_18_R1.CraftServer;
-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_18_R2.CraftServer;
+import org.bukkit.craftbukkit.v1_18_R2.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
