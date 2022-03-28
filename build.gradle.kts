@@ -22,18 +22,29 @@ repositories {
 }
 
 dependencies {
-    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.2-R0.1-SNAPSHOT")
+//    compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")  // no nms
+//    compileOnly(files("./run/versions/1.18.2/paper-1.18.2.jar"))  // nms obfuscated
+    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.2-R0.1-SNAPSHOT")  // nms deobfuscated
 
     implementation("space.vectrix.ignite:ignite-api:0.7.4")
     compileOnly("org.spongepowered:mixin:0.8.5")
 
+    // https://mvnrepository.com/artifact/org.jetbrains/annotations
     compileOnly("org.jetbrains:annotations:23.0.0")
 
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
 }
 
-val reobfJar by tasks.getting(io.papermc.paperweight.tasks.RemapJar::class)
+tasks.processResources {
+    filesMatching(listOf("plugin.yml", "ignite.mod.json")) {
+        expand(project.properties)
+    }
+}
+
+//val jar by tasks.getting(Jar::class)
+val reobfJar by tasks.getting(io.papermc.paperweight.tasks.RemapJar::class)  // reobfuscate nms
 
 val devBuild by tasks.creating(Copy::class) {
     group = "mod"
@@ -48,7 +59,6 @@ val runMixinServer by tasks.creating(JavaExec::class) {
     description = "Runs the ignite server"
 
     dependsOn(devBuild)
-
     doFirst {
         mkdir("$projectDir/run")
     }
